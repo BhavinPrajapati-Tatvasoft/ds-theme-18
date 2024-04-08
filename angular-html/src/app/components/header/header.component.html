@@ -1,0 +1,127 @@
+<header class="header">
+    <mat-toolbar>
+        <button mat-icon-button class="menu-icon" color="primary" (click)="toggleMenu()">
+            <img src="./assets/images/menu-icon.svg" alt="Menu" />
+        </button>
+        <mat-form-field class="search-input">
+            <input matInput placeholder="Search  here..">
+            <button matPrefix mat-icon-button color="primary">
+                <img src="./assets/images/search-icon.svg" alt="Search" />
+            </button>
+        </mat-form-field>
+        <div class="action-row">
+            <button mat-icon-button color="primary" (click)="toggleSearch()" class="d-sm-none d-flex">
+                <img src="./assets/images/search-icon.svg" alt="Search" />
+            </button>
+            <button mat-icon-button color="primary">
+                <img src="./assets/images/country-icon.png" alt="Country" />
+            </button>
+            <button mat-icon-button color="primary" matBadge="1" class="notification-btn"
+                [matMenuTriggerFor]="notificationMenu">
+                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M27.1003 19.1497L24.5625 16.6119V13.25C24.5596 10.9267 23.6953 8.68704 22.1368 6.96405C20.5784 5.24105 18.4363 4.15712 16.125 3.92187V2H14.25V3.92187C11.9387 4.15712 9.79665 5.24105 8.23816 6.96405C6.67967 8.68704 5.81541 10.9267 5.8125 13.25V16.6119L3.27469 19.1497C3.09886 19.3255 3.00005 19.5639 3 19.8125V22.625C3 22.8736 3.09877 23.1121 3.27459 23.2879C3.4504 23.4637 3.68886 23.5625 3.9375 23.5625H10.5V24.2909C10.4796 25.4803 10.8988 26.6353 11.6773 27.5347C12.4558 28.4341 13.5388 29.0146 14.7188 29.165C15.3705 29.2296 16.0285 29.1571 16.6506 28.9522C17.2726 28.7472 17.8448 28.4144 18.3305 27.975C18.8162 27.5356 19.2045 26.9994 19.4705 26.4009C19.7365 25.8024 19.8743 25.1549 19.875 24.5V23.5625H26.4375C26.6861 23.5625 26.9246 23.4637 27.1004 23.2879C27.2762 23.1121 27.375 22.8736 27.375 22.625V19.8125C27.3749 19.5639 27.2761 19.3255 27.1003 19.1497ZM18 24.5C18 25.2459 17.7037 25.9613 17.1762 26.4887C16.6488 27.0162 15.9334 27.3125 15.1875 27.3125C14.4416 27.3125 13.7262 27.0162 13.1988 26.4887C12.6713 25.9613 12.375 25.2459 12.375 24.5V23.5625H18V24.5ZM25.5 21.6875H4.875V20.2006L7.41281 17.6628C7.58864 17.487 7.68745 17.2486 7.6875 17V13.25C7.6875 11.2609 8.47768 9.35322 9.8842 7.9467C11.2907 6.54018 13.1984 5.75 15.1875 5.75C17.1766 5.75 19.0843 6.54018 20.4908 7.9467C21.8973 9.35322 22.6875 11.2609 22.6875 13.25V17C22.6876 17.2486 22.7864 17.487 22.9622 17.6628L25.5 20.2006V21.6875Z"
+                        fill="#909090" />
+                </svg>
+            </button>
+            <mat-menu #notificationMenu="matMenu" class="notification-menu" xPosition="before">
+                <div class="notification-header">
+                    <p>Notification</p>
+                    <a href="#" title="View all" class="primary-link">View all</a>
+                </div>
+                <ul class="notification-list">
+                    <li>
+                        <a href="#" title="Notification">
+                            <img src="./assets/images/user-1.png" alt="User" />
+                            <div class="content">
+                                <p class="content-text">Your order is placed at sud asmet.</p>
+                                <p class="time-text">Oct 3, 2017 9:00 PM</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="Notification">
+                            <img src="./assets/images/user-2.png" alt="User" />
+                            <div class="content">
+                                <p class="content-text">Order Delivered at sud amsesaaat.</p>
+                                <p class="time-text">Oct 3, 2017 9:00 PM</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="Notification">
+                            <img src="./assets/images/user-3.png" alt="User" />
+                            <div class="content">
+                                <p class="content-text">Your order is placed at suud amet.</p>
+                                <p class="time-text">Oct 3, 2017 9:00 PM</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="Notification">
+                            <img src="./assets/images/user-4.png" alt="User" />
+                            <div class="content">
+                                <p class="content-text">Your order is placed at suud amet.</p>
+                                <p class="time-text">Oct 3, 2017 9:00 PM</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="Notification">
+                            <img src="./assets/images/user-5.png" alt="User" />
+                            <div class="content">
+                                <p class="content-text">Your order is placed at suud amet.</p>
+                                <p class="time-text">Oct 3, 2017 9:00 PM</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="Notification">
+                            <img src="./assets/images/user-1.png" alt="User" />
+                            <div class="content">
+                                <p class="content-text">Your order is placed at suud amet.</p>
+                                <p class="time-text">Oct 3, 2017 9:00 PM</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="Notification">
+                            <img src="./assets/images/user-2.png" alt="User" />
+                            <div class="content">
+                                <p class="content-text">Your order is placed at suud amet.</p>
+                                <p class="time-text">Oct 3, 2017 9:00 PM</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </mat-menu>
+            <button mat-icon-button color="primary">
+                <img src="./assets/images/mail-icon.svg" alt="Email" />
+            </button>
+            <button mat-icon-button [matMenuTriggerFor]="profileMenu" color="primary">
+                <img src="./assets/images/profile-img.png" alt="Profile" />
+            </button>
+            <mat-menu #profileMenu="matMenu" class="profile-menu" xPosition="before">
+                <button mat-menu-item>
+                    <img src="./assets/images/profile-icon.svg" alt="Profile" />
+                    <span>MY profile</span>
+                </button>
+                <button mat-menu-item>
+                    <img src="./assets/images/support-icon.svg" alt="Support" />
+                    <span>Support</span>
+                </button>
+                <button mat-menu-item>
+                    <img src="./assets/images/change-password-icon.svg" alt="Change password" />
+                    <span>Change password</span>
+                </button>
+                <a routerLink="/login" title="Logout" mat-menu-item>
+                    <img src="./assets/images/logout-icon.svg" alt="Logout" />
+                    <span>Logout</span>
+                </a>
+            </mat-menu>
+        </div>
+    </mat-toolbar>
+    <div class="search-overlay" (click)="removeSearch()">
+
+    </div>
+</header>

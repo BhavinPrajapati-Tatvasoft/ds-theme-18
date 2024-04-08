@@ -1,0 +1,113 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+@import "reset.css";
+@import "bootstrap-grid.css";
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$primaryColor: (
+  50: #000000,
+  100: #200a0c,
+  200: #3f1418,
+  300: #5f1f25,
+  400: #7e2931,
+  500: #9e333d,
+  600: #b15c64,
+  700: #c5858b,
+  800: #d8adb1,
+  900: #ecd6d8,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+  ),
+);
+$accentColor: (
+  50: #000000,
+  100: #33230c,
+  200: #664618,
+  300: #996924,
+  400: #cc8c30,
+  500: #ffaf3c,
+  600: #ffbf63,
+  700: #ffcf8a,
+  800: #ffdfb1,
+  900: #ffefd8,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+  ),
+);
+
+$my-custom-typography-config: mat.define-typography-config(
+  $font-family: '"Lato", sans-serif',
+  $body-2: mat.define-typography-level(16px, 20px, 400),
+);
+$angular-html-primary: mat.define-palette($primaryColor);
+$angular-html-accent: mat.define-palette($accentColor);
+$my-typography: mat.define-typography-config();
+
+// The warn palette is optional (defaults to red).
+$angular-html-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$angular-html-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $angular-html-primary,
+      accent: $angular-html-accent,
+      warn: $angular-html-warn,
+    ),
+    typography: $my-custom-typography-config,
+    density: 0,
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($angular-html-theme);
+@include mat.all-component-typographies($my-custom-typography-config);
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
+
+html,
+body {
+  min-width: 375px;
+  min-height: 100vh;
+}
+body {
+  margin: 0;
+  font-family: '"Lato", sans-serif';
+  font-size: 16px;
+  line-height: 24px;
+  color: #606060;
+  background-color: #fbf9f9;
+}
+@import "variable.scss";
+@import "custom-theme.scss";
+@import "style.scss";

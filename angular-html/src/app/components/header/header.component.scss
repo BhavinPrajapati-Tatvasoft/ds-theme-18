@@ -1,0 +1,228 @@
+.header {
+  padding: 24px 24px 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 268px;
+  z-index: 2;
+  background-color: #fbf9f9;
+  transition: all 0.3s;
+  .action-row {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin-left: auto;
+    > .mdc-icon-button {
+      min-width: 50px;
+      min-height: 50px;
+    }
+  }
+}
+.mat-toolbar {
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  padding: 0 20px;
+  .menu-icon {
+    display: none;
+  }
+  ::ng-deep.mat-mdc-form-field {
+    --mdc-filled-text-field-container-shape: 0;
+    --mat-form-field-container-text-tracking: 0;
+    --mdc-filled-text-field-container-color: transparent;
+    --mdc-filled-text-field-input-text-placeholder-color: #909090;
+    --mat-form-field-container-text-size: 18px;
+    margin-right: auto;
+    .mat-mdc-form-field-icon-prefix {
+      padding-right: 0;
+      .mat-mdc-icon-button {
+        padding: 8px;
+      }
+    }
+    .mdc-line-ripple {
+      &::before {
+        display: none;
+      }
+    }
+  }
+}
+::ng-deep.profile-menu {
+  .mat-mdc-menu-item {
+    min-height: 38px;
+    padding: 0 12px;
+    &:not([disabled]) {
+      &:hover {
+        background-color: transparent;
+      }
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 0;
+      background-color: rgba($color: #9e333d, $alpha: 0.05);
+      transition: all 0.3s;
+    }
+    &:hover {
+      &::before {
+        width: 100%;
+      }
+    }
+  }
+  .mat-mdc-menu-content {
+    padding: 4px 0;
+  }
+  .mat-mdc-menu-item-text {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    line-height: 20px;
+    gap: 14px;
+    color: #2c2c2c;
+  }
+}
+::ng-deep.notification-btn {
+  &.mdc-icon-button {
+    .mat-badge-content {
+      font-size: 0;
+      line-height: 0;
+      height: 12px;
+      width: 12px;
+      background-color: #ee543f;
+      right: 12px;
+      top: 12px;
+      left: auto;
+      bottom: auto;
+      margin: 0 !important;
+      transition: all 0.3;
+    }
+    &[aria-expanded="true"] {
+      background-color: #9e333d;
+      .mat-badge-content {
+        opacity: 0;
+      }
+      svg {
+        path {
+          fill: #ffffff;
+        }
+      }
+    }
+  }
+}
+::ng-deep.notification-menu {
+  &.mat-mdc-menu-panel {
+    min-width: 308px;
+    .mat-mdc-menu-content {
+      padding: 0;
+      padding-bottom: 16px;
+      letter-spacing: 0;
+    }
+  }
+  .notification-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    height: 60px;
+    border-bottom: 1px solid #e4e4e4;
+    padding: 8px 20px;
+    p {
+      font-size: 18px;
+      line-height: 22px;
+      font-weight: 700;
+      color: #2c2c2c;
+      padding-bottom: 0;
+    }
+  }
+}
+.notification-list {
+  display: flex;
+  flex-direction: column;
+  max-height: 275px;
+  overflow: auto;
+  height: 100%;
+  li {
+    a {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 16px 10px 22px;
+      position: relative;
+      .content-text {
+        color: #2c2c2c;
+        padding-bottom: 0;
+        font-size: 14px;
+        line-height: 18px;
+      }
+      .time-text {
+        color: #606060;
+        padding-bottom: 0;
+        font-size: 12px;
+        line-height: 14px;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 0;
+        background-color: rgba($color: #9e333d, $alpha: 0.05);
+        transition: all 0.3s;
+        z-index: -1;
+      }
+      &:hover,
+      &:focus {
+        &::before {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+/* Responsive Media Queries
+--------------------------------------------------------------------------------------------------------*/
+@media (max-width: 1399px) {
+  .mat-toolbar {
+    padding: 0 12px;
+  }
+  .header {
+    left: 0;
+    padding: 0;
+    border-radius: 0;
+    .menu-icon {
+      display: flex;
+    }
+  }
+}
+@media (max-width: 767px) {
+  .mat-toolbar {
+    padding: 0 8px;
+  }
+}
+@media (max-width: 575px) {
+  .search-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba($color: #000000, $alpha: 0.6);
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+  }
+  .search-input {
+    position: fixed;
+    // top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -100px;
+    width: 0;
+    opacity: 0;
+    transition: all 0.3s;
+    z-index: 2;
+    background-color: #ffffff;
+    border-radius: 4px;
+  }
+}

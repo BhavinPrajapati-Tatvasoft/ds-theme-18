@@ -1,0 +1,38 @@
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+/* Responsive Media Queries
+--------------------------------------------------------------------------------------------------------*/
+@media (max-width: 1399px) {
+  .open-menu {
+    overflow: hidden;
+    .wrapper {
+      aside.sidebar {
+        left: 0;
+      }
+      .sidebar-overlay {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+  .open-search {
+    .header {
+      .search-input {
+        width: calc(100% - 32px);
+        opacity: 1;
+        bottom: 200px;
+      }
+    }
+    .wrapper {
+      .search-overlay {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+}
+@media (max-width: 991px) {
+  
+}

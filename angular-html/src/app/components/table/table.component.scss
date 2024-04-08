@@ -1,0 +1,93 @@
+::ng-deep.mat-mdc-table {
+  margin-bottom: 16px;
+  thead {
+    th {
+      vertical-align: middle;
+      font-size: 15px;
+      line-height: 20px;
+      font-weight: 600;
+      color: #2c2c2c;
+      white-space: nowrap;
+      &.text-center {
+        .mat-sort-header-container {
+          justify-content: center;
+          margin-right: -14px;
+        }
+      }
+      .mat-sort-header-arrow {
+        background-position: center;
+        background-size: 12px;
+        background-repeat: no-repeat;
+        div {
+          display: none;
+        }
+      }
+      &[aria-sort="descending"] {
+        .mat-sort-header-arrow {
+          background-image: url("../../../assets/images/desc-icon.svg");
+        }
+      }
+      &[aria-sort="ascending"] {
+        .mat-sort-header-arrow {
+          background-image: url("../../../assets/images/asc-icon.svg");
+        }
+      }
+    }
+  }
+  .mdc-data-table__row {
+    &:last-child {
+      .mat-mdc-cell {
+        border-bottom: 1px solid #dae9ea;
+      }
+    }
+  }
+  .mdc-data-table__content {
+    .mat-mdc-row {
+      .mat-mdc-cell {
+        vertical-align: middle;
+        color: #606060;
+        .status {
+          font-size: 14px;
+          line-height: 18px;
+          font-family: Lato;
+          font-weight: 600;
+          letter-spacing: 0.01em;
+          text-align: center;
+          border-radius: 5px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          color: #ffffff;
+          height: 25px;
+          padding: 4px 12px;
+          &.Rejected {
+            background-color: #c22c3a;
+          }
+          &.Accepted {
+            background-color: #39a73d;
+          }
+          &.Pending {
+            background-color: #c18b28;
+          }
+        }
+        .action-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
+::ng-deep.mat-mdc-paginator-outer-container {
+  .mat-mdc-paginator-page-size-select {
+    width: 64px;
+  }
+  .mat-mdc-text-field-wrapper {
+    padding: 0 12px;
+  }
+  .mat-mdc-form-field-infix {
+    display: flex;
+    align-items: center;
+  }
+}

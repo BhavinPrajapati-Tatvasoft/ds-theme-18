@@ -1,0 +1,38 @@
+<aside class="sidebar">
+    <div class="sidebar-top" data-aos="zoom-in">
+        <a href="#" title="Smart Track" class="logo">
+            <img src="./assets/images/logo.svg" alt="Smart Track" />
+        </a>
+    </div>
+    <ul>
+        <li data-aos="fade-right" data-aos-delay="100">
+            <a class="nav-link" title="Dashboard" routerLinkActive="active" routerLink="/dashboard"
+                href="javascript:void(0)" (click)="removeMenu()">
+                <img src="./assets/images/dashboard-icon.svg" alt="Dashboard" />
+                <span>Dashboard</span>
+            </a>
+        </li>
+        <li data-aos="fade-right" data-aos-delay="200">
+            <a class="nav-link" title="Orders" routerLinkActive="active" routerLink="/orders" href="javascript:void(0)"
+                (click)="removeMenu()">
+                <img src="./assets/images/orders-icon.svg" alt="Orders" />
+                <span>Orders</span>
+            </a>
+        </li>
+        <li data-aos="fade-right" data-aos-delay="300">
+            <a class="nav-link" title="Products" routerLinkActive="active" routerLink="#" href="javascript:void(0)"
+                (click)="removeMenu()">
+                <img src="./assets/images/products-icon.svg" alt="Products" />
+                <span>Products</span>
+            </a>
+        </li>
+        <li data-aos="fade-right" data-aos-delay="400">
+            <a class="nav-link" title="Reports" routerLinkActive="active" routerLink="#" href="javascript:void(0)"
+                (click)="removeMenu()">
+                <img src="./assets/images/reports-icon.svg" alt="Reports" />
+                <span>Reports</span>
+            </a>
+        </li>
+    </ul>
+</aside>
+<div class="sidebar-overlay" (click)="removeMenu()"></div>

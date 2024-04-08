@@ -1,0 +1,69 @@
+<div class="table-responsive">
+    <table mat-table [dataSource]="dataSource" matSort>
+        <!-- Product Name Column -->
+        <ng-container matColumnDef="ProductName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Product Name</th>
+            <td mat-cell *matCellDef="let row">
+                {{row.ProductName}}
+            </td>
+        </ng-container>
+
+        <!-- Type Column -->
+        <ng-container matColumnDef="Type">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Type</th>
+            <td mat-cell *matCellDef="let row">
+                {{row.Type}}
+            </td>
+        </ng-container>
+
+        <!-- Color Column -->
+        <ng-container matColumnDef="Color">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Color</th>
+            <td mat-cell *matCellDef="let row">
+                {{row.Color}}
+            </td>
+        </ng-container>
+
+        <!-- Payment Column -->
+        <ng-container matColumnDef="Payment">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Payment</th>
+            <td mat-cell *matCellDef="let row"> {{row.Payment}} </td>
+        </ng-container>
+
+        <!-- Order Status Column -->
+        <ng-container matColumnDef="Status">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="status-head text-center">Status
+            </th>
+            <td mat-cell *matCellDef="let row" class="text-center">
+                <span [class]="row.Status" class="status">{{row.Status}}</span>
+            </td>
+        </ng-container>
+
+        <!-- Action Column -->
+        <ng-container matColumnDef="Action">
+            <th mat-header-cell *matHeaderCellDef class="text-center action-col">Action</th>
+            <td mat-cell *matCellDef=" let row" class="text-center">
+                <div class="action-wrapper">
+                    <button mat-icon-button [matMenuTriggerFor]="actionMenu" aria-label="Menu">
+                        <img src="./assets/images/action-icon.svg" alt="Action" />
+                    </button>
+                    <mat-menu #actionMenu="matMenu" class="action-menu" xPosition="before">
+                        <button mat-menu-item>
+                            View
+                        </button>
+                        <button mat-menu-item>
+                            Edit
+                        </button>
+                        <button mat-menu-item>
+                            Delete
+                        </button>
+                    </mat-menu>
+                </div>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
+<mat-paginator *ngIf="paginationEnabled" [pageSizeOptions]="[4, 8, 12, 16, 100]" [selectConfig]="paginationSelectConfig"
+    aria-label="Select page of users"></mat-paginator>

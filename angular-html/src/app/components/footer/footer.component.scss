@@ -1,0 +1,19 @@
+.copyright-text {
+  font-size: 14px;
+  line-height: 18px;
+  color: #949494;
+  padding: 24px;
+  text-align: end;
+}
+/* Responsive Media Queries
+--------------------------------------------------------------------------------------------------------*/
+@media (max-width: 1399px) {
+  .copyright-text {
+    text-align: center;
+  }
+}
+@media (max-width: 767px) {
+  .copyright-text {
+    padding: 16px;
+  }
+}
