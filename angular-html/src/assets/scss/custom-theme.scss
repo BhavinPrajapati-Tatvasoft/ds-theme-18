@@ -143,6 +143,7 @@
   --mat-paginator-container-text-color: "#2C2C2C";
 
   --mat-paginator-form-field-container-vertical-padding: "4px";
+  --mat-paginator-container-text-size: "16px";
 }
 
 // Form Field
@@ -407,9 +408,14 @@
 
 // Pagination
 .mat-mdc-paginator {
+  margin-top: auto;
   .mat-mdc-select-value {
     --mat-paginator-select-trigger-text-size: 16px;
     color: #2c2c2c;
+  }
+  .mat-mdc-paginator-icon {
+    height: 24px;
+    width: 24px;
   }
 }
 
@@ -425,5 +431,23 @@
   .main-content {
     margin: 76px 16px 0;
     min-height: calc(100vh - 50px);
+  }
+  .mat-mdc-paginator {
+    margin-top: 8px;
+  }
+}
+@media (max-width: 575px) {
+  .mat-mdc-paginator {
+    .mat-mdc-paginator-container {
+      justify-content: center;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .mat-mdc-paginator-page-size {
+      margin-right: 0;
+    }
+    .mat-mdc-paginator-range-label {
+      margin-left: 12px;
+    }
   }
 }

@@ -91,3 +91,8 @@
     align-items: center;
   }
 }
+.table-wrapper {
+  height: calc(100% - 32px);
+  display: flex;
+  flex-direction: column;
+}
