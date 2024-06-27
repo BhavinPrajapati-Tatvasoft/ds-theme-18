@@ -53,28 +53,26 @@ $(document).ready(function () {
     $("body").removeClass("open-search");
   });
 
-  // Sales Chart
-  let dataChartCanvas = document.getElementById("dataChart");
-  if (dataChartCanvas) {
-    var ctx = dataChartCanvas.getContext("2d");
+  // Hiring Chart
+  let profitEarnedChartCanvas = document.getElementById("profitEarnedChart");
+  if (profitEarnedChartCanvas) {
+    var ctx = profitEarnedChartCanvas.getContext("2d");
     var data = {
-      labels: ["2018", "2019", "2020", "2021", "2022"],
+      labels: ["S", "M", "T", "W", "T", "F", "S"],
       datasets: [
         {
-          data: [20, 55, 75, 35, 78],
-          borderColor: "#48A846",
-          pointBorderColor: "#48A846",
-          tension: 0.4,
-          pointRadius: 4,
-          pointBackgroundColor: "#48A846",
+          data: [12, 5, 7, 5, 17, 10, 10, 30],
+          backgroundColor: "#9E333D",
+          borderWidth: 1,
+          borderColor: "transparent",
+          barThickness: 7,
         },
         {
-          data: [77, 19, 65, 85, 65],
-          borderColor: "#2B9EB3",
-          tension: 0.4,
-          pointRadius: 4,
-          pointBorderColor: "#2B9EB3",
-          pointBackgroundColor: "#2B9EB3",
+          data: [10, 3, 4, 2, 12, 6, 7],
+          backgroundColor: "#E67B86",
+          borderWidth: 1,
+          borderColor: "transparent",
+          barThickness: 7,
         },
       ],
     };
@@ -84,46 +82,95 @@ $(document).ready(function () {
         legend: {
           display: false,
         },
-        tooltip: {
-          backgroundColor: "#333333",
-          yAlign: "bottom",
-          xAlign: "center",
-          displayColors: false,
-          cornerRadius: 18,
-          titleMarginBottom: 0,
-          titleSpacing: 0,
-          caretSize: 6,
-          caretPadding: 5,
-          titleFont: {
-            size: 0,
-            lineHeight: 0,
+      },
+      scales: {
+        x: {
+          ticks: {
+            color: "#606060",
+            font: {
+              size: 12,
+              lineHeight: "14px",
+            },
+            padding: 3,
           },
-          padding: {
-            top: 6,
-            bottom: 6,
-            left: 14,
-            right: 14,
+          grid: {
+            drawTicks: false,
+            display: false,
           },
-          bodyFont: {
-            size: 12,
-            lineHeight: "20px",
-            weight: "500",
+          border: {
+            color: "#BEBEBE",
           },
+        },
+        y: {
+          ticks: {
+            color: "#606060",
+            font: {
+              size: 12,
+              lineHeight: "14px",
+            },
+            padding: 3,
+            stepSize: 10,
+          },
+          grid: {
+            drawTicks: false,
+            display: false,
+          },
+          border: {
+            display: false,
+          },
+        },
+      },
+      animation: {
+        duration: 2000,
+        easing: "easeOutSine",
+      },
+    };
+    var profitEarnedChart = new Chart(ctx, {
+      type: "bar",
+      data: data,
+      options: options,
+    });
+  }
+
+  // Resolved Complaint Chart
+  let resolvedComplaintChartCanvas = document.getElementById(
+    "resolvedComplaintChart"
+  );
+  if (resolvedComplaintChartCanvas) {
+    var ctx = resolvedComplaintChartCanvas.getContext("2d");
+    var data = {
+      labels: ["1", "2", "3", "4", "5"],
+      datasets: [
+        {
+          data: [0, 27, 20, 34, 0],
+          fill: true,
+          borderColor: "#9E333D",
+          borderWidth: 1,
+          pointBorderWidth: 0,
+          pointStyle: "line",
+          tension: 0.4,
+          label: "Unlimited Pizza",
+          backgroundColor: "#FF55551B",
+        },
+      ],
+    };
+    var options = {
+      maintainAspectRatio: false,
+      layout: {
+        padding: -50,
+      },
+      plugins: {
+        legend: {
+          display: false,
         },
       },
       scales: {
         x: {
           ticks: {
-            color: "#666666",
-            font: {
-              size: 12,
-              lineHeight: "18px",
-            },
-            padding: 8,
+            display: false,
           },
           grid: {
-            drawTicks: false,
-            color: "#E6E6E6",
+            display: false,
           },
           border: {
             display: false,
@@ -131,17 +178,10 @@ $(document).ready(function () {
         },
         y: {
           ticks: {
-            color: "#666666",
-            font: {
-              size: 12,
-              lineHeight: "18px",
-            },
-            padding: 8,
-            stepSize: 20,
+            display: false,
           },
           grid: {
-            drawTicks: false,
-            color: "#E6E6E6",
+            display: false,
           },
           border: {
             display: false,
@@ -153,45 +193,8 @@ $(document).ready(function () {
         easing: "easeOutSine",
       },
     };
-    var dataChart = new Chart(ctx, {
+    var resolvedComplaintChart = new Chart(ctx, {
       type: "line",
-      data: data,
-      options: options,
-    });
-  }
-
-  // Device Chart
-  let deviceChartCanvas = document.getElementById("deviceChart");
-  if (deviceChartCanvas) {
-    var ctx = deviceChartCanvas.getContext("2d");
-    var data = {
-      labels: ["35%", "15%", "50%"],
-      datasets: [
-        {
-          label: "My First Dataset",
-          data: [35, 15, 50],
-          backgroundColor: ["#0C4FFA", "#48A846", "#F03B3D"],
-          hoverOffset: 4,
-          borderWidth: 0,
-        },
-      ],
-    };
-    var options = {
-      maintainAspectRatio: false,
-      cutout: 88,
-      offset: 6,
-      plugins: {
-        legend: {
-          display: false,
-        },
-      },
-      animation: {
-        duration: 2000,
-        easing: "easeOutSine",
-      },
-    };
-    var deviceChart = new Chart(ctx, {
-      type: "doughnut",
       data: data,
       options: options,
     });
@@ -203,8 +206,39 @@ $(document).ready(function () {
     dropdownCssClass: "custom-select-menu",
     laceholder: "This is my placeholder",
   });
+
   // CountUp
-  $(".numbers").counterUp();
+  $(".numbers .count-up").counterUp({
+    delay: 10,
+    time: 1000,
+  });
+
+  // Datatable
+  $("#datatable1").DataTable({
+    sort: false,
+    filter: false,
+    info: true,
+    autoWidth: false,
+    pagingType: "full_numbers",
+    order: [[0, ""]],
+    pageLength: 5,
+    layout: {
+      topStart: null,
+      top: null,
+      topEnd: null,
+      bottomStart: "info",
+    },
+    language: {
+      info: "Showing _START_-_END_ of _TOTAL_ Results",
+      paginate: {
+        first: false,
+        last: false,
+        previous:
+          '<img src="images/prev-active-icon.svg" class="active-icon" alt="Prev"/><img src="images/prev-disabled-icon.svg" class="default-icon" alt="Prev"/>',
+        next: '<img src="images/next-active-icon.svg" class="active-icon" alt="Next"/><img src="images/next-disabled-icon.svg" class="default-icon" alt="Next"/>',
+      },
+    },
+  });
 
   // Password Toggle
   $(".password-btn").click(function () {
@@ -218,58 +252,23 @@ $(document).ready(function () {
     }
   });
 
-  $("#datatable1").DataTable({
-    sort: false,
-    filter: false,
-    info: false,
-    autoWidth: false,
-    dom: '<"top">rt<"bottom"flip><"clear">',
-    paging: false,
-  });
-
-  var dataTable2 = $("#datatable2").DataTable({
-    sort: false,
-    dom: '<"top">rt<"bottom custom-pagination"flip><"clear">',
-    filter: false,
-    info: true,
-    autoWidth: false,
-    pagingType: "full_numbers",
-    pageLength: 10,
-    order: [[0, ""]],
-    language: {
-      info: "_START_-_END_ of _TOTAL_",
-      paginate: {
-        first: false,
-        last: false,
-        previous:
-          '<img src="images/prev-active-icon.svg" class="active-icon" alt="Prev"/><img src="images/prev-disabled-icon.svg" class="default-icon" alt="Prev"/>',
-        next: '<img src="images/next-active-icon.svg" class="active-icon" alt="Next"/><img src="images/next-disabled-icon.svg" class="default-icon" alt="Next"/>',
-      },
-      lengthMenu: "",
-    },
-  });
-  let $paginationNav = $(".pagination-nav");
-  let $customPagination = $(".custom-pagination");
-  if ($paginationNav) {
-    $paginationNav.append($customPagination);
-  }
-  $paginationNav.prepend(`
-    <div class="datatable-length-custom">
-    <span class="pagination-label">Rows per page: </span>
-      <select class="paging-select" id="customLengthMenu">
-        <option value="10">10</option>
-        <option value="15">15</option>
-        <option value="20">20</option>
-        <option value="25">25</option>
-      </select>
-    </div>
-  `);
-  // Handle change in the custom length menu
-  $("#customLengthMenu").on("change", function () {
-    let pageLength = $(this).val();
-    let table = $("#datatable2").DataTable();
-    table.page.len(pageLength).draw();
-  });
+  // Circular Progress
+  $(".circle")
+    .circleProgress({
+      value: 0.55,
+      size: 78,
+      fill: "#FFFFFF",
+      startAngle: 29.9,
+      thickness: 4,
+      lineCap: "round",
+      emptyFill: "#CECECE",
+      animation: { duration: 2000, easing: "circleProgressEasing" },
+    })
+    .on("circle-animation-progress", function (event, progress) {
+      $(this)
+        .find("span")
+        .html(Math.round(55 * progress) + "<i>%</i>");
+    });
 
   // AOS Initialize
   AOS.init({
